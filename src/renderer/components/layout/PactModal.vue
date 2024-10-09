@@ -56,7 +56,7 @@ export default {
   },
   data() {
     return {
-      time: 20,
+      time: 1,
     }
   },
   computed: {
