@@ -51,34 +51,36 @@ export default {
           const songDetails = await this.fetchSongDetails(privilege.id)
           if (songDetails) {
             const jmSize = songDetails.data.jm?.size
+            const hrSize = songDetails.data.hr?.size
+            const sqSize = songDetails.data.sq?.size
+            const hSize = songDetails.data.h?.size
+            const mSize = songDetails.data.m?.size
+            const lSize = songDetails.data.l?.size
             if (jmSize) {
               size = sizeFormate(jmSize)
               types.push({ type: 'master', size })
               _types.master = { size }
             }
-
-            if (privilege.maxBrLevel === 'hires') {
-              size = item.hr ? sizeFormate(item.hr.size) : null
+            if (hrSize) {
+              size = sizeFormate(hrSize)
               types.push({ type: 'flac24bit', size })
               _types.flac24bit = { size }
             }
-
-            switch (privilege.maxbr) {
-              case 999000:
-                size = item.sq ? sizeFormate(item.sq.size) : null
-                types.push({ type: 'flac', size })
-                _types.flac = { size }
-              case 320000:
-                size = item.h ? sizeFormate(item.h.size) : null
-                types.push({ type: '320k', size })
-                _types['320k'] = { size }
-              case 192000:
-              case 128000:
-                size = item.l ? sizeFormate(item.l.size) : null
-                types.push({ type: '128k', size })
-                _types['128k'] = { size }
+            if (sqSize) {
+              size = sizeFormate(sqSize)
+              types.push({ type: 'flac', size })
+              _types.flac = { size }
             }
-
+            if (hSize) {
+              size = sizeFormate(hSize)
+              types.push({ type: '320k', size })
+              _types['320k'] = { size }
+            }
+            if (mSize || lSize) {
+              size = sizeFormate(mSize || lSize)
+              types.push({ type: '128k', size })
+              _types['128k'] = { size }
+            }
             types.reverse()
           }
 

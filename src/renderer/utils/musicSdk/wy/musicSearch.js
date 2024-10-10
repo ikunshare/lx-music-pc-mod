@@ -51,25 +51,29 @@ export default {
           types.push({ type: 'master', size })
           _types.master = { size }
         }
-        if (item.privilege.maxBrLevel == 'hires') {
-          size = item.hr ? sizeFormate(item.hr.size) : null
+        if (body.data.hr && body.data.hr.size) {
+          size = sizeFormate(body.data.hr.size)
           types.push({ type: 'flac24bit', size })
           _types.flac24bit = { size }
         }
-        switch (item.privilege.maxbr) {
-          case 999000:
-            size = item.sq ? sizeFormate(item.sq.size) : null
-            types.push({ type: 'flac', size })
-            _types.flac = { size }
-          case 320000:
-            size = item.h ? sizeFormate(item.h.size) : null
-            types.push({ type: '320k', size })
-            _types['320k'] = { size }
-          case 192000:
-          case 128000:
-            size = item.l ? sizeFormate(item.l.size) : null
-            types.push({ type: '128k', size })
-            _types['128k'] = { size }
+        if (body.data.sq && body.data.sq.size) {
+          size = sizeFormate(body.data.sq.size)
+          types.push({ type: 'flac', size })
+          _types.flac = { size }
+        }
+        if (body.data.h && body.data.h.size) {
+          size = sizeFormate(body.data.h.size)
+          types.push({ type: '320k', size })
+          _types['320k'] = { size }
+        }
+        if (body.data.m && body.data.m.size) {
+          size = sizeFormate(body.data.h.size)
+          types.push({ type: '128k', size })
+          _types['128k'] = { size }
+        } else if (body.data.l && body.data.l.size) {
+          size = sizeFormate(body.data.l.size)
+          types.push({ type: '128k', size })
+          _types['128k'] = { size }
         }
 
         types.reverse()
