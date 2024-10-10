@@ -19,22 +19,25 @@ export default {
       },
       body: {
         comm: {
-          ct: '19',
-          cv: '2039',
-          guid: 'lxmusic',
-          patch: '118',
-          tmeAppID: 'qqmusic',
-          tmeLoginType: 2,
+          ct: 11,
+          cv: '1003006',
+          v: '1003006',
+          os_ver: '12',
+          phonetype: '0',
+          devicelevel: '31',
+          tmeAppID: 'qqmusiclight',
+          nettype: 'NETWORK_WIFI',
         },
         req: {
           module: 'music.search.SearchCgiService',
-          method: 'DoSearchForQQMusicDesktop',
+          method: 'DoSearchForQQMusicLite',
           param: {
-            grp: 1,
-            num_per_page: limit,
-            page_num: page,
             query: str,
             search_type: 0,
+            num_per_page: limit,
+            page_num: page,
+            nqc_flag: 0,
+            grp: 1,
           },
         },
       },
@@ -123,8 +126,7 @@ export default {
     if (limit == null) limit = this.limit
     // http://newlyric.kuwo.cn/newlyric.lrc?62355680
     return this.musicSearch(str, page, limit).then(({ body, meta }) => {
-      console.log(body)
-      let list = this.handleResult(body.song.list)
+      let list = this.handleResult(body.item_song)
 
       this.total = meta.estimate_sum
       this.page = page
