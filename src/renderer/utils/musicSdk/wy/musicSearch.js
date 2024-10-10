@@ -67,7 +67,7 @@ export default {
           _types['320k'] = { size }
         }
         if (body.data.m && body.data.m.size) {
-          size = sizeFormate(body.data.h.size)
+          size = sizeFormate(body.data.m.size)
           types.push({ type: '128k', size })
           _types['128k'] = { size }
         } else if (body.data.l && body.data.l.size) {
