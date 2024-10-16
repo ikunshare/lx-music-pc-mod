@@ -10,8 +10,8 @@ dd
     | &nbsp;&nbsp;密码：
     span.hover(:aria-label="$t('setting__click_copy')" @click="clipboardWriteText('LXMusicMod')") LXMusicMod
   .p.small
-    | 仍有问题可加企鹅群&nbsp;
-    span.hover(:aria-label="$t('setting__click_open')" @click="openUrl('https://qm.qq.com/q/Uw54ZtkwIa')") 849514974
+    | 仍有问题可加Telegram群组&nbsp;
+    span.hover(:aria-label="$t('setting__click_open')" @click="openUrl('https://t.me/ikunshare_qun')")
     | &nbsp;反馈
     strong (为了群主和管理的寿命，入群先看群公告)
 
