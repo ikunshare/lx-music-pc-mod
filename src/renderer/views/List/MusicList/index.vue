@@ -42,8 +42,13 @@
             </transition>
           </div>
           <div class="list-item-cell auto name" :aria-label="item.name">
-            <span class="select name">{{ item.name }}</span>
-            <span v-if="isShowSource" class="no-select label-source">{{ item.source }}</span>
+            <span class="select name" :aria-label="item.name">{{ item.name }}</span>
+            <span v-if="item.meta._qualitys && item.meta._qualitys.master && item.source !== 'local'" class="no-select badge badge-theme-primary">{{ $t('tag__lossless_master') }}</span>
+            <span v-else-if="item.meta._qualitys && item.meta._qualitys.dolby && item.source !== 'local'" class="no-select badge badge-theme-primary">{{ $t('tag__lossless_dolby') }}</span>
+            <span v-else-if="item.meta._qualitys && item.meta._qualitys.flac24bit && item.source !== 'local'" class="no-select badge badge-theme-primary">{{ $t('tag__lossless_24bit') }}</span>
+            <span v-else-if="item.meta._qualitys && (item.meta._qualitys.ape || item.meta._qualitys.flac || item.meta._qualitys.wav) && item.source !== 'local'" class="no-select badge badge-theme-primary">{{ $t('tag__lossless') }}</span>
+            <span v-else-if="item.meta._qualitys && item.meta._qualitys['320k'] && item.source !== 'local'" class="no-select badge badge-theme-secondary">{{ $t('tag__high_quality') }}</span>
+            <span v-if="isShowSource" class="no-select label-source">{{ $t(`tag__source_${item.source}`) }}</span>
           </div>
           <div class="list-item-cell" style="flex: 0 0 22%;"><span class="select" :aria-label="item.singer">{{ item.singer }}</span></div>
           <div class="list-item-cell" style="flex: 0 0 22%;"><span class="select" :aria-label="item.meta.albumName">{{ item.meta.albumName }}</span></div>
@@ -75,7 +80,12 @@
           </div>
           <div class="list-item-cell auto name">
             <span class="select name" :aria-label="item.name">{{ item.name }}</span>
-            <span v-if="isShowSource" class="no-select label-source">{{ item.source }}</span>
+            <span v-if="item.meta._qualitys && item.meta._qualitys.master && item.source !== 'local'" class="no-select badge badge-theme-primary">{{ $t('tag__lossless_master') }}</span>
+            <span v-else-if="item.meta._qualitys && item.meta._qualitys.dolby && item.source !== 'local'" class="no-select badge badge-theme-primary">{{ $t('tag__lossless_dolby') }}</span>
+            <span v-else-if="item.meta._qualitys && item.meta._qualitys.flac24bit && item.source !== 'local'" class="no-select badge badge-theme-primary">{{ $t('tag__lossless_24bit') }}</span>
+            <span v-else-if="item.meta._qualitys && (item.meta._qualitys.ape || item.meta._qualitys.flac || item.meta._qualitys.wav) && item.source !== 'local'" class="no-select badge badge-theme-primary">{{ $t('tag__lossless') }}</span>
+            <span v-else-if="item.meta._qualitys && item.meta._qualitys['320k'] && item.source !== 'local'" class="no-select badge badge-theme-secondary">{{ $t('tag__high_quality') }}</span>
+            <span v-if="isShowSource" class="no-select label-source">{{ $t(`tag__source_${item.source}`) }}</span>
           </div>
           <div class="list-item-cell" style="flex: 0 0 25%;"><span class="select" :aria-label="item.singer">{{ item.singer }}</span></div>
           <div class="list-item-cell" style="flex: 0 0 28%;"><span class="select" :aria-label="item.meta.albumName">{{ item.meta.albumName }}</span></div>

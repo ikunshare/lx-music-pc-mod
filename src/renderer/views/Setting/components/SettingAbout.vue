@@ -3,7 +3,7 @@ dt#about {{ $t('setting__about') }}
 dd
   .p.small
     | 本软件完全免费，代码已开源，开源地址：
-    span.hover.underline(:aria-label="$t('setting__click_open')" @click="openUrl('https://github.com/ikunshare/lx-music-desktop#readme')") https://github.com/ikunshare/lx-music-desktop
+    span.hover.underline(:aria-label="$t('setting__click_open')" @click="openUrl('https://github.com/ikunshare/ikun-music-desktop#readme')") https://github.com/ikunshare/ikun-music-desktop
   .p.small
     | 最新版网盘下载地址（网盘内有Windows、Android版）：
     span.hover.underline(:aria-label="$t('setting__click_open')" @click="openUrl('https://www.lanzoui.com/s/LXMusic')") 网盘地址
@@ -11,7 +11,7 @@ dd
     span.hover(:aria-label="$t('setting__click_copy')" @click="clipboardWriteText('LXMusicMod')") LXMusicMod
   .p.small
     | 仍有问题可加Telegram群组&nbsp;
-    span.hover(:aria-label="$t('setting__click_open')" @click="openUrl('https://t.me/ikunshare_qun')")
+    span.hover(:aria-label="$t('setting__click_open')" @click="openUrl('https://t.me/ikunshare_qun')") 点击加入
     | &nbsp;反馈
     strong (为了群主和管理的寿命，入群先看群公告)
 

@@ -51,6 +51,11 @@ export default {
           types.push({ type: 'master', size })
           _types.master = { size }
         }
+        if (body.data.db && body.data.db.size) {
+          size = sizeFormate(body.data.db.size)
+          types.push({ type: 'dolby', size })
+          _types.dolby = { size }
+        }
         if (body.data.hr && body.data.hr.size) {
           size = sizeFormate(body.data.hr.size)
           types.push({ type: 'flac24bit', size })

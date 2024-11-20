@@ -27,7 +27,7 @@
                   <h3 :class="$style.text">{{ item.name }} - {{ item.singer }}</h3>
                   <h3 v-if="item.meta.albumName" :class="[$style.text, $style.albumName]">{{ item.meta.albumName }}</h3>
                 </div>
-                <div :class="$style.source">{{ item.source }}</div>
+                <div :class="$style.source">{{ $t('tag__source_') + item.source }}</div>
               </li>
             </ul>
           </div>

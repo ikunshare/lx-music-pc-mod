@@ -47,7 +47,7 @@ const options = {
     {
       provider: 'github',
       owner: 'ikunshare',
-      repo: 'lx-music-desktop-mod',
+      repo: 'ikun-music-desktop',
     },
   ],
 }

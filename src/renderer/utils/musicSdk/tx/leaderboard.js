@@ -138,6 +138,13 @@ export default {
           size,
         }
       }
+      if (item.file.size_new[1] !== 0) {
+        let size = sizeFormate(item.file.size_new[1])
+        types.push({ type: 'dolby', size })
+        _types.dolby = {
+          size,
+        }
+      }
       if (item.file.size_new[0] !== 0) {
         let size = sizeFormate(item.file.size_new[0])
         types.push({ type: 'master', size })

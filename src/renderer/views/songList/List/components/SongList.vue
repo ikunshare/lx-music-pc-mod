@@ -14,7 +14,7 @@
               <div :class="$style.songlist_info">
                 <span v-if="item.total != null"><svg-icon name="music" />{{ item.total }}</span>
                 <span v-if="item.play_count != null"><svg-icon name="headphones" />{{ item.play_count }}</span>
-                <span v-if="visibleSource">{{ item.source }}</span>
+                <span v-if="visibleSource">{{ $t(`tag__source_${item.source}`) }}</span>
               </div>
             </div>
           </div>

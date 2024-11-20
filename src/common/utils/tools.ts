@@ -14,15 +14,6 @@ export const toNewMusicInfo = (oldMusicInfo: any): LX.Music.MusicInfo => {
     meta.qualitys = oldMusicInfo.types
     meta._qualitys = oldMusicInfo._types
     meta.albumId = oldMusicInfo.albumId
-    if (meta._qualitys.flac32bit && !meta._qualitys.flac24bit) {
-      meta._qualitys.flac24bit = meta._qualitys.flac32bit
-      delete meta._qualitys.flac32bit
-
-      meta.qualitys = (meta.qualitys as any[]).map(quality => {
-        if (quality.type == 'flac32bit') quality.type = 'flac24bit'
-        return quality
-      })
-    }
 
     switch (oldMusicInfo.source) {
       case 'kg':

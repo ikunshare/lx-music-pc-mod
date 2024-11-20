@@ -51,6 +51,7 @@ export default {
           const songDetails = await this.fetchSongDetails(privilege.id)
           if (songDetails) {
             const jmSize = songDetails.data.jm?.size
+            const dbSize = songDetails.data.db?.size
             const hrSize = songDetails.data.hr?.size
             const sqSize = songDetails.data.sq?.size
             const hSize = songDetails.data.h?.size
@@ -60,6 +61,11 @@ export default {
               size = sizeFormate(jmSize)
               types.push({ type: 'master', size })
               _types.master = { size }
+            }
+            if (dbSize) {
+              size = sizeFormate(dbSize)
+              types.push({ type: 'dolby', size })
+              _types.dolby = { size }
             }
             if (hrSize) {
               size = sizeFormate(hrSize)

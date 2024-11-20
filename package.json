@@ -1,9 +1,9 @@
 {
-  "name": "lx-music-desktop-mod",
-  "version": "3.4.8",
+  "name": "ikun-music-desktop",
+  "version": "3.5.6",
   "description": "一个免费的音乐查找助手",
   "main": "./dist/main.js",
-  "productName": "lx-music-desktop-mod",
+  "productName": "ikun-music-desktop",
   "scripts": {
     "pack": "node build-config/pack.js && npm run pack:win:setup:x64",
     "pack:win": "node build-config/pack.js && npm run pack:win:setup:x64 && npm run pack:win:setup:x86 && npm run pack:win:setup:arm64 && npm run pack:win:setup:x86_64 && npm run pack:win:7z",
@@ -77,21 +77,21 @@
   },
   "macLanguagesInfoPlistStrings": {
     "en": {
-      "CFBundleDisplayName": "LX Music",
-      "CFBundleName": "LX Music"
+      "CFBundleDisplayName": "LX Music Mod",
+      "CFBundleName": "LX Music Mod"
     },
     "zh_CN": {
-      "CFBundleDisplayName": "LX Music",
-      "CFBundleName": "LX Music"
+      "CFBundleDisplayName": "LX Music Mod",
+      "CFBundleName": "LX Music Mod"
     },
     "zh_TW": {
-      "CFBundleDisplayName": "LX Music",
-      "CFBundleName": "LX Music"
+      "CFBundleDisplayName": "LX Music Mod",
+      "CFBundleName": "LX Music Mod"
     }
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lyswhut/lx-music-desktop.git"
+    "url": "git+https://github.com/ikunshare/ikun-music-desktop.git"
   },
   "keywords": [
     "music-player",
@@ -99,14 +99,14 @@
     "vuejs3"
   ],
   "author": {
-    "name": "lyswhut",
-    "email": "lyswhut@qq.com"
+    "name": "ikunshare",
+    "email": "ikun0014@qq.com"
   },
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/lyswhut/lx-music-desktop/issues"
+    "url": "https://github.com/ikunshare/ikun-music-desktop/issues"
   },
-  "homepage": "https://github.com/lyswhut/lx-music-desktop#readme",
+  "homepage": "https://github.com/ikunshare/ikun-music-desktop#readme",
   "devDependencies": {
     "@babel/core": "^7.25.9",
     "@babel/eslint-parser": "^7.25.9",
@@ -170,7 +170,7 @@
     "typescript": "^5.6.3",
     "vue-eslint-parser": "^9.4.3",
     "vue-loader": "^17.4.2",
-    "vue-template-compiler": "^2.7.16",
+    "vue-template-compiler": "^0.1.0",
     "webpack": "^5.95.0",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "5.0.4",
@@ -179,6 +179,7 @@
   },
   "dependencies": {
     "@simonwep/pickr": "^1.9.1",
+    "axios": "^1.7.7",
     "better-sqlite3": "^11.5.0",
     "bufferutil": "^4.0.8",
     "comlink": "~4.3.1",
