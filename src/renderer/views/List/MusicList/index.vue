@@ -44,6 +44,8 @@
           <div class="list-item-cell auto name" :aria-label="item.name">
             <span class="select name" :aria-label="item.name">{{ item.name }}</span>
             <span v-if="item.meta._qualitys && item.meta._qualitys.master && item.source !== 'local'" class="no-select badge badge-theme-primary">{{ $t('tag__lossless_master') }}</span>
+            <span v-else-if="item.meta._qualitys && item.meta._qualitys.effect_plus && item.source !== 'local'" class="no-select badge badge-theme-primary">{{ $t('tag__lossless_effect_plus') }}</span>
+            <span v-else-if="item.meta._qualitys && item.meta._qualitys.effect && item.source !== 'local'" class="no-select badge badge-theme-primary">{{ $t('tag__lossless_effect') }}</span>
             <span v-else-if="item.meta._qualitys && item.meta._qualitys.dolby && item.source !== 'local'" class="no-select badge badge-theme-primary">{{ $t('tag__lossless_dolby') }}</span>
             <span v-else-if="item.meta._qualitys && item.meta._qualitys.flac24bit && item.source !== 'local'" class="no-select badge badge-theme-primary">{{ $t('tag__lossless_24bit') }}</span>
             <span v-else-if="item.meta._qualitys && (item.meta._qualitys.ape || item.meta._qualitys.flac || item.meta._qualitys.wav) && item.source !== 'local'" class="no-select badge badge-theme-primary">{{ $t('tag__lossless') }}</span>
@@ -81,6 +83,8 @@
           <div class="list-item-cell auto name">
             <span class="select name" :aria-label="item.name">{{ item.name }}</span>
             <span v-if="item.meta._qualitys && item.meta._qualitys.master && item.source !== 'local'" class="no-select badge badge-theme-primary">{{ $t('tag__lossless_master') }}</span>
+            <span v-else-if="item.meta._qualitys && item.meta._qualitys.effect_plus && item.source !== 'local'" class="no-select badge badge-theme-primary">{{ $t('tag__lossless_effect_plus') }}</span>
+            <span v-else-if="item.meta._qualitys && item.meta._qualitys.effect && item.source !== 'local'" class="no-select badge badge-theme-primary">{{ $t('tag__lossless_effect') }}</span>
             <span v-else-if="item.meta._qualitys && item.meta._qualitys.dolby && item.source !== 'local'" class="no-select badge badge-theme-primary">{{ $t('tag__lossless_dolby') }}</span>
             <span v-else-if="item.meta._qualitys && item.meta._qualitys.flac24bit && item.source !== 'local'" class="no-select badge badge-theme-primary">{{ $t('tag__lossless_24bit') }}</span>
             <span v-else-if="item.meta._qualitys && (item.meta._qualitys.ape || item.meta._qualitys.flac || item.meta._qualitys.wav) && item.source !== 'local'" class="no-select badge badge-theme-primary">{{ $t('tag__lossless') }}</span>

@@ -535,6 +535,8 @@
   "setting__play_playQuality_flac": "無損音質 FLAC",
   "setting__play_playQuality_flac24bit": "無損音質 Hires",
   "setting__play_playQuality_dolby": "杜比全景聲",
+  "setting__play_playQuality_effect": "臻品全景聲",
+  "setting__play_playQuality_effect_plus": "臻品全景聲2.0",
   "setting__play_playQuality_master": "臻品母帶",
   "setting__play_power_save_blocker": "播放歌曲時阻止電腦休眠",
   "setting__play_save_play_time": "記住播放進度",

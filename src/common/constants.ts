@@ -79,6 +79,6 @@ export const DOWNLOAD_STATUS = {
   COMPLETED: 'completed',
 } as const
 
-export const QUALITYS = ['master', 'dolby', 'flac24bit', 'flac', 'wav', 'ape', '320k', '192k', '128k'] as const
+export const QUALITYS = ['master', 'effect_plus', 'effect', 'dolby', 'flac24bit', 'flac', 'wav', 'ape', '320k', '192k', '128k'] as const
 
 export const TRAY_AUTO_ID = -1

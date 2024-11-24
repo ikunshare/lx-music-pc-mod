@@ -648,6 +648,8 @@
   "tag__lossless": "SQ",
   "tag__lossless_24bit": "24bit",
   "tag__lossless_dolby": "杜比全景声",
+  "tag__lossless_effect": "臻品全景声",
+  "tag__lossless_effect_plus": "臻品全景声2.0",
   "tag__lossless_master": "臻品母带",
   "tag__source_kw": "酷我",
   "tag__source_kg": "酷狗",

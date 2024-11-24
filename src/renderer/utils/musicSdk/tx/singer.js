@@ -36,8 +36,15 @@ export const filterMusicInfoItem = item => {
   }
   if (item.file.size_new[1] !== 0) {
     let size = sizeFormate(item.file.size_new[1])
-    types.push({ type: 'dolby', size })
-    _types.dolby = {
+    types.push({ type: 'effect', size })
+    _types.effect = {
+      size,
+    }
+  }
+  if (item.file.size_new[2] !== 0) {
+    let size = sizeFormate(item.file.size_new[2])
+    types.push({ type: 'effect_plus', size })
+    _types.effect_plus = {
       size,
     }
   }

@@ -60,9 +60,13 @@ export default {
     getTypeName(quality) {
       switch (quality) {
         case 'master':
-          return '臻品母带'
+          return this.$t('tag__lossless_master')
         case 'dolby':
-          return '杜比全景声'
+          return this.$t('tag__lossless_dolby')
+        case 'effect_plus':
+          return this.$t('tag__lossless_effect_plus')
+        case 'effect':
+          return this.$t('tag__lossless_effect')
         case 'flac24bit':
           return this.$t('download__lossless') + ' FLAC Hires'
         case 'flac':

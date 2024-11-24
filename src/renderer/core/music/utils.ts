@@ -210,7 +210,7 @@ export const getOnlineOtherSourcePicByLocal = async(musicInfo: LX.Music.MusicInf
   })
 }
 
-export const TRY_QUALITYS_LIST = ['master', 'dolby', 'flac24bit', 'flac', '320k'] as const
+export const TRY_QUALITYS_LIST = ['master', 'effect', 'effect_plus', 'dolby', 'flac24bit', 'flac', '320k'] as const
 type TryQualityType = typeof TRY_QUALITYS_LIST[number]
 export const getPlayQuality = (highQuality: LX.Quality, musicInfo: LX.Music.MusicInfoOnline): LX.Quality => {
   let type: LX.Quality = '128k'

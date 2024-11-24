@@ -535,6 +535,8 @@
   "setting__play_playQuality_flac": "FLAC",
   "setting__play_playQuality_flac24bit": "Hires",
   "setting__play_playQuality_dolby": "Dolby",
+  "setting__play_playQuality_effect": "Effect",
+  "setting__play_playQuality_effect_plus": "Effect Plus",
   "setting__play_playQuality_master": "Master",
   "setting__play_power_save_blocker": "Prevent computer from sleeping while playing songs",
   "setting__play_save_play_time": "Remember playback progress",

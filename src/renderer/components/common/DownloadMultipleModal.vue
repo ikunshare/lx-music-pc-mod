@@ -6,8 +6,10 @@
       <base-btn :class="$style.btn" @click="handleClick('320k')">{{ $t('download__high_quality') }} - 320K</base-btn>
       <base-btn :class="$style.btn" @click="handleClick('flac')">{{ $t('download__lossless') }} - FLAC</base-btn>
       <base-btn :class="$style.btn" @click="handleClick('flac24bit')">{{ $t('download__lossless') }} - FLAC Hires</base-btn>
-      <base-btn :class="$style.btn" @click="handleClick('dolby')">杜比全景声</base-btn>
-      <base-btn :class="$style.btn" @click="handleClick('master')">臻品母带</base-btn>
+      <base-btn :class="$style.btn" @click="handleClick('dolby')">{{ $t('tag__lossless_dolby') }}</base-btn>
+      <base-btn :class="$style.btn" @click="handleClick('effect')">{{ $t('tag__lossless_effect') }}</base-btn>
+      <base-btn :class="$style.btn" @click="handleClick('effect_plus')">{{ $t('tag__lossless_effect_plus') }}</base-btn>
+      <base-btn :class="$style.btn" @click="handleClick('master')">{{ $t('tag__lossless_master') }}</base-btn>
     </main>
   </material-modal>
 </template>
