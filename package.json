@@ -175,7 +175,8 @@
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "5.0.4",
     "webpack-hot-middleware": "github:lyswhut/webpack-hot-middleware#329c4375134b89d39da23a56a94db651247c74a1",
-    "webpack-merge": "^6.0.1"
+    "webpack-merge": "^6.0.1",
+    "dmg-license": "1.0.11"
   },
   "dependencies": {
     "@simonwep/pickr": "^1.9.1",
@@ -198,7 +199,8 @@
     "utf-8-validate": "^6.0.5",
     "vue": "~3.3.13",
     "vue-router": "^4.5.0",
-    "ws": "^8.18.0"
+    "ws": "^8.18.0",
+    "dmg-license": "1.0.11"
   },
   "overrides": {
     "got": "^11",
