@@ -68,7 +68,7 @@ const delayRetry = async(musicInfo: LX.Music.MusicInfo | LX.Download.ListItem, i
   // if (cancelDelayRetry) cancelDelayRetry()
   return new Promise<string | null>((resolve, reject) => {
     const time = getRandom(2, 6)
-    setAllStatus(window.i18n.t('player__geting_url_delay_retry', { time }))
+    setAllStatus(window.i18n.t('player__getting_url_delay_retry', { time }))
     const tiemout = setTimeout(() => {
       getMusicPlayUrl(musicInfo, isRefresh, true).then((result) => {
         cancelDelayRetry = null
@@ -87,7 +87,7 @@ const delayRetry = async(musicInfo: LX.Music.MusicInfo | LX.Download.ListItem, i
 }
 const getMusicPlayUrl = async(musicInfo: LX.Music.MusicInfo | LX.Download.ListItem, isRefresh = false, isRetryed = false): Promise<string | null> => {
   // this.musicInfo.url = await getMusicPlayUrl(targetSong, type)
-  setAllStatus(window.i18n.t('player__geting_url'))
+  setAllStatus(window.i18n.t('player__getting_url'))
   if (appSetting['player.autoSkipOnError']) addLoadTimeout()
 
   // const type = getPlayType(appSetting['player.highQuality'], musicInfo)
@@ -240,7 +240,7 @@ const handlePlay = () => {
 export const playList = (listId: string, index: number) => {
   const prevListId = playInfo.playerListId
   setPlayListId(listId)
-  pause()
+  // pause()
   setPlayMusicInfo(listId, getList(listId)[index])
   if (appSetting['player.isAutoCleanPlayedList'] || prevListId != listId) clearPlayedList()
   clearTempPlayeList()
@@ -256,12 +256,12 @@ const handleToggleStop = () => {
 
 const randomNextMusicInfo = {
   info: null as LX.Player.PlayMusicInfo | null,
-  index: -1,
+  // index: -1,
 }
 export const resetRandomNextMusicInfo = () => {
   if (randomNextMusicInfo.info) {
     randomNextMusicInfo.info = null
-    randomNextMusicInfo.index = -1
+    // randomNextMusicInfo.index = -1
   }
 }
 
@@ -342,13 +342,13 @@ export const getNextPlayMusicInfo = async(): Promise<LX.Player.PlayMusicInfo | n
 
   if (togglePlayMethod == 'random') {
     randomNextMusicInfo.info = nextPlayMusicInfo
-    randomNextMusicInfo.index = nextIndex
+    // randomNextMusicInfo.index = nextIndex
   }
   return nextPlayMusicInfo
 }
 
 const handlePlayNext = (playMusicInfo: LX.Player.PlayMusicInfo) => {
-  pause()
+  // pause()
   setPlayMusicInfo(playMusicInfo.listId, playMusicInfo.musicInfo, playMusicInfo.isTempPlay)
   handlePlay()
 }

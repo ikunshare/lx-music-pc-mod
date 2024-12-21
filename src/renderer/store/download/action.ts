@@ -16,6 +16,7 @@ import { proxyCallback } from '@renderer/worker/utils'
 import { arrPush, arrUnshift, joinPath } from '@renderer/utils'
 import { DOWNLOAD_STATUS } from '@common/constants'
 import { proxy } from '../index'
+import { buildSavePath } from './utils'
 
 const waitingUpdateTasks = new Map<string, LX.Download.ListItem>()
 let timer: NodeJS.Timeout | null = null
@@ -101,10 +102,10 @@ const setStatus = (downloadInfo: LX.Download.ListItem, status: LX.Download.Downl
   if (statusText == null) {
     switch (status) {
       case DOWNLOAD_STATUS.RUN:
-        statusText = window.i18n.t('download___status_runing')
+        statusText = window.i18n.t('download___status_running')
         break
       case DOWNLOAD_STATUS.WAITING:
-        statusText = window.i18n.t('download___status_wating')
+        statusText = window.i18n.t('download___status_waiting')
         break
       case DOWNLOAD_STATUS.PAUSE:
         statusText = window.i18n.t('download___status_paused')
@@ -113,7 +114,7 @@ const setStatus = (downloadInfo: LX.Download.ListItem, status: LX.Download.Downl
         statusText = window.i18n.t('download___status_error')
         break
       case DOWNLOAD_STATUS.COMPLETED:
-        statusText = window.i18n.t('download___status_complated')
+        statusText = window.i18n.t('download___status_completed')
         break
       default:
         statusText = ''
@@ -261,7 +262,7 @@ const handleError = (downloadInfo: LX.Download.ListItem, message?: string) => {
 
 const handleStartTask = async(downloadInfo: LX.Download.ListItem) => {
   if (!downloadInfo.metadata.url) {
-    setStatusText(downloadInfo, window.i18n.t('download_status_url_geting'))
+    setStatusText(downloadInfo, window.i18n.t('download_status_url_getting'))
     const url = await getUrl(downloadInfo)
     if (!url) {
       handleError(downloadInfo, window.i18n.t('download_status_error_url_failed'))
@@ -271,12 +272,13 @@ const handleStartTask = async(downloadInfo: LX.Download.ListItem) => {
     if (downloadInfo.status != DOWNLOAD_STATUS.RUN) return
   }
 
-  const filePath = joinPath(appSetting['download.savePath'], downloadInfo.metadata.fileName)
+  const savePath = buildSavePath(downloadInfo)
+  const filePath = joinPath(savePath, downloadInfo.metadata.fileName)
   if (downloadInfo.metadata.filePath != filePath) updateFilePath(downloadInfo, filePath)
 
   setStatusText(downloadInfo, window.i18n.t('download_status_start'))
 
-  await window.lx.worker.download.startTask(toRaw(downloadInfo), appSetting['download.savePath'], appSetting['download.skipExistFile'], proxyCallback((event: LX.Download.DownloadTaskActions) => {
+  await window.lx.worker.download.startTask(toRaw(downloadInfo), savePath, appSetting['download.skipExistFile'], proxyCallback((event: LX.Download.DownloadTaskActions) => {
     // console.log(event)
     switch (event.action) {
       case 'start':
@@ -357,12 +359,11 @@ const filterTask = (list: LX.Download.ListItem[]) => {
  * @param list 要下载的歌曲
  * @param quality 下载音质
  */
-export const createDownloadTasks = async(list: LX.Music.MusicInfoOnline[], quality: LX.Quality) => {
+export const createDownloadTasks = async(list: LX.Music.MusicInfoOnline[], quality: LX.Quality, listId?: string) => {
   if (!list.length) return
   const tasks = filterTask(await window.lx.worker.download.createDownloadTasks(list, quality,
-    appSetting['download.savePath'],
     appSetting['download.fileName'],
-    toRaw(qualityList.value)),
+    toRaw(qualityList.value), listId),
   )
 
   if (tasks.length) await addTasks(tasks)
