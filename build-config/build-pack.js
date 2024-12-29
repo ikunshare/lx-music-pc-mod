@@ -82,8 +82,6 @@ const linuxOptions = {
     category: 'Utility;AudioVideo;Audio;Player;Music;',
     desktop: {
       Name: 'LX Music Mod',
-      'Name[zh_CN]': 'LX Music Mod',
-      'Name[zh_TW]': 'LX Music Mod',
       Encoding: 'UTF-8',
       MimeType: 'x-scheme-handler/lxmusic',
       StartupNotify: 'false',
