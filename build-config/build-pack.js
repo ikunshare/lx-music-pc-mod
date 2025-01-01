@@ -5,18 +5,16 @@ const beforePack = require('./build-before-pack')
 const afterPack = require('./build-after-pack')
 
 /**
-* @type {import('electron-builder').Configuration}
-* @see https://www.electron.build/configuration/configuration
-*/
+ * @type {import('electron-builder').Configuration}
+ * @see https://www.electron.build/configuration/configuration
+ */
 const options = {
   appId: 'com.ikunshare.music.desktop',
   beforePack,
   afterPack,
   protocols: {
     name: 'lx-music-protocol',
-    schemes: [
-      'lxmusic',
-    ],
+    schemes: ['lxmusic'],
   },
   directories: {
     buildResources: './resources',
@@ -40,9 +38,7 @@ const options = {
   asar: {
     smartUnpack: false,
   },
-  extraResources: [
-    './licenses',
-  ],
+  extraResources: ['./licenses'],
   publish: [
     {
       provider: 'github',
@@ -80,12 +76,6 @@ const linuxOptions = {
     // artifactName: '${productName}-${version}.${env.ARCH}.${ext}',
     icon: './resources/icons',
     category: 'Utility;AudioVideo;Audio;Player;Music;',
-    desktop: {
-      Name: 'LX Music Mod',
-      Encoding: 'UTF-8',
-      MimeType: 'x-scheme-handler/lxmusic',
-      StartupNotify: 'false',
-    },
   },
   appImage: {
     license: './licenses/license_zh.txt',
@@ -194,7 +184,8 @@ const createTarget = {
           buildOptions: { win: ['portable'] },
           options: winOptions,
         }
-      default: throw new Error('Unknown package type: ' + packageType)
+      default:
+        throw new Error('Unknown package type: ' + packageType)
     }
   },
   /**
@@ -206,7 +197,9 @@ const createTarget = {
   linux(arch, packageType) {
     switch (packageType) {
       case 'deb':
-        linuxOptions.artifactName = `\${productName}_\${version}_${arch == 'x64' ? 'amd64' : arch}.\${ext}`
+        linuxOptions.artifactName = `\${productName}_\${version}_${
+          arch == 'x64' ? 'amd64' : arch
+        }.\${ext}`
         return {
           buildOptions: { linux: ['deb'] },
           options: linuxOptions,
@@ -229,7 +222,8 @@ const createTarget = {
           buildOptions: { linux: ['rpm'] },
           options: linuxOptions,
         }
-      default: throw new Error('Unknown package type: ' + packageType)
+      default:
+        throw new Error('Unknown package type: ' + packageType)
     }
   },
   /**
@@ -246,7 +240,8 @@ const createTarget = {
           buildOptions: { mac: ['dmg'] },
           options: macOptions,
         }
-      default: throw new Error('Unknown package type: ' + packageType)
+      default:
+        throw new Error('Unknown package type: ' + packageType)
     }
   },
 }
@@ -293,8 +288,8 @@ for (const param of process.argv.slice(2)) {
 }
 
 if (params.target == null) throw new Error('Missing target')
-if (params.target != 'dir' && params.arch == null) throw new Error('Missing arch')
-if (params.target != 'dir' && params.type == null) throw new Error('Missing type')
+if (params.target != 'dir' && params.arch == null) { throw new Error('Missing arch') }
+if (params.target != 'dir' && params.type == null) { throw new Error('Missing type') }
 
 console.log(params.target, params.arch, params.type, params.publish ?? '')
 build(params.target, params.arch, params.type, params.publish)
