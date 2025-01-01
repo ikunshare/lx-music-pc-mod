@@ -106,7 +106,7 @@ export default {
   }
 }
 .main {
-  min-height: 115px;
+  min-height: 200px;
   width: @width;
 }
 

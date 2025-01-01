@@ -1,7 +1,7 @@
 <template>
   <material-modal :show="modelValue" max-height="90%" teleport="#view" @close="handleCancel">
     <main :class="$style.main">
-      <h2>{{ themeId ? $t('theme_edit_modal__title_edit') : $t('theme_edit_modal__title_add') }}</h2>
+      <h2>{{ $t('theme_edit_modal__title') }}</h2>
       <div class="scroll" :class="$style.content">
         <div :class="[$style.group, $style.base]">
           <div :class="$style.groupContent">
@@ -100,18 +100,17 @@
           </div>
         </div>
       </div>
+      <!-- <div :class="$style.note">
+        <p>{{ $t('theme_selector_modal__title_tip') }}</p>
+      </div> -->
       <div :class="$style.footer">
-        <div :class="$style.subContent" style="flex-wrap: wrap;">
+        <div :class="$style.subContent">
           <base-input v-model="themeName" :class="$style.input" :placeholder="$t('theme_selector_modal__theme_name')" />
-          <div :class="$style.subContent" style="flex-wrap: wrap;">
-            <base-checkbox id="theme_edit_modal__dark" v-model="isDark" :class="$style.checkbox" :label="$t('theme_edit_modal__dark')" @change="handleDark" />
-            <div :class="$style.subContent" style="flex-wrap: wrap;">
-              <base-checkbox id="theme_edit_modal__dark_font" v-model="isDarkFont" :class="$style.checkbox" :label="$t('theme_edit_modal__dark_font')" @change="handleDarkFont" />
-              <base-checkbox id="theme_edit_modal__preview" v-model="preview" :class="$style.checkbox" :label="$t('theme_edit_modal__preview')" @change="handlePreview" />
-            </div>
-          </div>
+          <base-checkbox id="theme_edit_modal__dark" v-model="isDark" :class="$style.checkbox" :label="$t('theme_edit_modal__dark')" @change="handleDark" />
+          <base-checkbox id="theme_edit_modal__dark_font" v-model="isDarkFont" :class="$style.checkbox" :label="$t('theme_edit_modal__dark_font')" @change="handleDarkFont" />
+          <base-checkbox id="theme_edit_modal__preview" v-model="preview" :class="$style.checkbox" :label="$t('theme_edit_modal__preview')" @change="handlePreview" />
         </div>
-        <div :class="$style.subContent" style="flex: none;">
+        <div :class="$style.subContent">
           <base-btn v-if="themeId" :class="$style.btn" @click="handleRemove">{{ $t('theme_edit_modal__remove') }}</base-btn>
           <base-btn v-if="themeId" :class="$style.btn" @click="handleSaveNew">{{ $t('theme_edit_modal__save_new') }}</base-btn>
           <!-- <base-btn :class="$style.btn" @click="handleCancel">{{ $t('btn_cancel') }}</base-btn> -->
@@ -596,7 +595,7 @@ export default {
 }
 .item {
   padding: 15px 20px 0;
-  width: 74px;
+  width: 60px;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
@@ -622,6 +621,7 @@ export default {
 .label {
   padding-top: 10px;
   text-align: center;
+  line-height: 1.1;
 }
 
 .bg {
@@ -769,7 +769,7 @@ export default {
 .footer {
   padding: 15px;
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: row wrap;
   align-items: center;
   justify-content: space-between;
   gap: 15px;
@@ -778,14 +778,14 @@ export default {
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
-    gap: 10px;
+    gap: 15px;
   }
 
   .checkbox {
     flex: none;
   }
   .input {
-    max-width: 150px;
+    min-width: 0;
     flex: 0 1 auto;
   }
 }

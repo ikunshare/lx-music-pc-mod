@@ -166,8 +166,6 @@ export default {
 .main {
   padding: 10px 7px 0;
   width: 560px;
-  max-width: 100%;
-  box-sizing: border-box;
   // min-width: 280px;
   display: flex;
   flex-flow: column nowrap;
@@ -182,7 +180,7 @@ export default {
 
 .list {
   flex: auto;
-  min-height: 100px;
+  min-height: 200px;
   min-width: 460px;
   // background-color: @color-search-form-background;
   font-size: 13px;

@@ -170,10 +170,10 @@ export default {
     align-items: center;
     cursor: pointer;
     // color: var(--color-primary);
-    margin-right: 4px;
+    margin-right: 30px;
     transition: color .3s ease;
     margin-bottom: 15px;
-    width: 86px;
+    width: 56px;
 
     &:last-child {
       margin-right: 0;
