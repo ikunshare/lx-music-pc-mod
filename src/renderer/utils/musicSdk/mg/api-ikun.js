@@ -5,13 +5,16 @@ import { dnsLookup } from '../utils'
 
 const api_ikun = {
   getMusicUrl(songInfo, type) {
-    const requestObj = httpFetch(`https://lxmusic.ikunshare.com/url/mg/${songInfo.copyrightId}/${type}`, {
-      method: 'get',
-      timeout,
-      headers,
-      lookup: dnsLookup,
-      family: 4,
-    })
+    const requestObj = httpFetch(
+      `https://lxmusic.ikunshare.com/url?source=mg&songId=${songInfo.copyrightId}&quality=${type}`,
+      {
+        method: 'get',
+        timeout,
+        headers,
+        lookup: dnsLookup,
+        family: 4,
+      },
+    )
     requestObj.promise = requestObj.promise.then(({ statusCode, body }) => {
       if (statusCode == 429) return Promise.reject(new Error(requestMsg.tooManyRequests))
       switch (body.code) {
