@@ -22,6 +22,7 @@ const sources: Array<{
         'effect_plus',
         'master',
       ],
+      mg: ['128k', '320k', 'flac', 'flac24bit'],
       wy: ['128k', '320k', 'flac', 'flac24bit', 'dolby', 'master'],
     },
   },
